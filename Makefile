@@ -14,3 +14,5 @@ start:
 
 rmi:
 	docker stop ${IMAGE_NAME} && docker rm ${IMAGE_NAME} && docker rmi ${IMAGE_NAME}
+
+	--platform linux/amd64

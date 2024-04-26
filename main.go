@@ -24,7 +24,7 @@ func main() {
 
 	e.GET("/", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]interface{}{
-			"message": os.Getenv("WORD"),
+			"word": os.Getenv("WORD"),
 		})
 	})
 
