@@ -1,5 +1,8 @@
 IMAGE_NAME := myapp
 
+dev:
+	nodemon --exec go run main.go --signal SIGTERM
+
 dcb:
 	docker build -t ${IMAGE_NAME} .
 

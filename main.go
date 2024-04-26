@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -29,7 +28,7 @@ func main() {
 		})
 	})
 
-	e.Logger.Fatal(e.Start(fmt.Sprintf(":%v", os.Getenv("PORT"))))
+	e.Start(":8000")
 }
 
 func init() {
