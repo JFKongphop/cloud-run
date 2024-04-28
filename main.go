@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -31,7 +32,9 @@ func main() {
 	})
 
 	e.GET("/test", func(c echo.Context) error {
-		url := "https://jsonplaceholder.typicode.com/posts/2"
+		id := c.Param("id")
+
+		url := fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%s", id)
     var response map[string]interface{}
     err := requests.
 			URL(url).
