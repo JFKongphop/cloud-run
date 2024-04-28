@@ -10,9 +10,13 @@ dcr:
 	docker run --name ${IMAGE_NAME} -p 1323 -d ${IMAGE_NAME}
 
 start:
-	docker build -t ${IMAGE_NAME} . && docker run --name ${IMAGE_NAME} -p 1323:1323 -d ${IMAGE_NAME}
+	docker build -t ${IMAGE_NAME} . && docker run --name ${IMAGE_NAME} -p 1323:8000 -d ${IMAGE_NAME}
 
 rmi:
 	docker stop ${IMAGE_NAME} && docker rm ${IMAGE_NAME} && docker rmi ${IMAGE_NAME}
 
-	--platform linux/amd64
+dt:
+	curl http://localhost:1323/test | jq
+
+at:
+	curl http://localhost:8000/test | jq

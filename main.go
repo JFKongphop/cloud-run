@@ -31,12 +31,13 @@ func main() {
 	})
 
 	e.GET("/test", func(c echo.Context) error {
-		var response string
-		if err := requests.
-			URL("https://test-3mf2w4ufma-uc.a.run.app").
-			ToString(&response).
-			Fetch(context.Background());
-		err != nil {
+		url := "https://jsonplaceholder.typicode.com/posts/2"
+    var response map[string]interface{}
+    err := requests.
+			URL(url).
+			ToJSON(&response).
+			Fetch(context.Background())
+		if err != nil {
 			return c.JSON(echo.ErrBadRequest.Code, err.Error())
 		}
 
