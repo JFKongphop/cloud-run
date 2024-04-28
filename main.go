@@ -31,7 +31,7 @@ func main() {
 		})
 	})
 
-	e.GET("/test", func(c echo.Context) error {
+	e.GET("/test/:id", func(c echo.Context) error {
 		id := c.Param("id")
 
 		url := fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%s", id)
